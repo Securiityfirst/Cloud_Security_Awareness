@@ -5,7 +5,7 @@ app = Flask('Web')
 import openai
 
 # Set up OpenAI API key
-openai.api_key = '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'
+openai.api_key = ''
 
 lessons = []
 
