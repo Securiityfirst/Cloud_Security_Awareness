@@ -21,7 +21,7 @@ training_topics = [
 
 # Generate explanation for a topic
 def generate_explanation(topic):
-                                prompt = f'Explain the concept of {topic} in simple terms suitable for corporate Cloud Security Awareness.'
+                                prompt = f'Explain the concept of {topic} in simple terms suitable for corporate Cloud Security Training.'
                                 response = openai.Completion.create(
                                 engine='gpt-3.5-turbo-instruct',
                                 prompt=prompt,
@@ -31,7 +31,7 @@ def generate_explanation(topic):
 
 # Generate a quiz question
 def generate_quiz_question(topic):
-                                  prompt = f'Create a multiple-choice question about {topic} for cloud Security Awareness, with one correct answer and three wrong answers.'
+                                  prompt = f'Create a multiple-choice question about {topic} for Cloud Security Training, with one correct answer and three wrong answers.'
                                   response = openai.Completion.create(
                                   engine='gpt-3.5-turbo-instruct',
                                   prompt=prompt,
@@ -41,7 +41,7 @@ def generate_quiz_question(topic):
 
 # Simulate a phishing scenario
 def simulate_phishing_scenario():
-                                 prompt = 'Create a simulated phishing email for cloud Security Awareness. Include common red flags that employees should identify.'
+                                 prompt = 'Create a simulated phishing email for Cloud Security Training. Include common red flags that employees should identify.'
                                  response = openai.Completion.create(
                                  engine='gpt-3.5-turbo-instruct',
                                  prompt=prompt,
@@ -61,7 +61,7 @@ def simulate_password_scenario():
 
 # Simulate a social engineering attack scenario
 def simulate_social_engineering_scenario():
-                                           prompt = 'Create a simulated social engineering attack scenario for cloud Security Awareness, detailing how an attacker might manipulate an employee.'
+                                           prompt = 'Create a simulated social engineering attack scenario for Cloud Security Training, detailing how an attacker might manipulate an employee.'
                                            response = openai.Completion.create(
                                            engine='gpt-3.5-turbo-instruct',
                                            prompt=prompt,
