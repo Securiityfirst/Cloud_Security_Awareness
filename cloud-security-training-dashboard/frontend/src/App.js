@@ -1,22 +1,24 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Home from './pages/Home';
-import About from './pages/About';
-import NotFound from './pages/NotFound';
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import TrainingModule from './pages/TrainingModule';
+import UserProfile from './pages/UserProfile';
 import './styles/index.css';
 
-function App() {
+const App = () => {
   return (
     <Router>
       <div className="App">
+        <Navbar />
         <Switch>
-          <Route path="/" exact component={Home} />
-          <Route path="/about" component={About} />
-          <Route component={NotFound} />
+          <Route path="/" exact component={Dashboard} />
+          <Route path="/module/:id" component={TrainingModule} />
+          <Route path="/profile" component={UserProfile} />
         </Switch>
       </div>
     </Router>
   );
-}
+};
 
 export default App;

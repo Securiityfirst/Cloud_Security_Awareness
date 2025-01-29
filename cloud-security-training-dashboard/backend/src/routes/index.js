@@ -1,8 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const controller = require('../controllers/index');
+const { getTrainingModules } = require('../controllers');
 
-// Define your routes here
-router.get('/api/example', controller.exampleFunction);
+router.get('/training-modules', getTrainingModules);
 
 module.exports = router;
+
+

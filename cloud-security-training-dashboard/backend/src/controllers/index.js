@@ -1,14 +1,7 @@
-exports.getTrainingData = (req, res) => {
-    // Logic to retrieve training data
-    res.send("Training data retrieved successfully.");
+const getTrainingModules = (req, res) => {
+  res.json({ message: 'List of training modules' });
 };
 
-exports.postTrainingData = (req, res) => {
-    // Logic to save training data
-    res.send("Training data saved successfully.");
-};
-
-exports.deleteTrainingData = (req, res) => {
-    // Logic to delete training data
-    res.send("Training data deleted successfully.");
+module.exports = {
+  getTrainingModules,
 };
