@@ -1,8 +1,8 @@
-
 import openai
+import os
 
 # Set up OpenAI API key
-openai.api_key = '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'
+openai.api_key = os.getenv('web key')
 
 # Training content structure
 training_topics = [
@@ -19,22 +19,13 @@ training_topics = [
 'Incident Response and Recovery'
 ]
 
-
-lessons = []
-
-def get_lessons():
-    return lessons
-
-def add_lesson(title, content):
-                               lessons.append({"title": title, "content": content}
-)
 # Generate explanation for a topic
 def generate_explanation(topic):
                                 prompt = f'Explain the concept of {topic} in simple terms suitable for corporate Cloud Security Awareness.'
                                 response = openai.Completion.create(
                                 engine='gpt-3.5-turbo-instruct',
                                 prompt=prompt,
-                                max_tokens=300
+                                max_tokens=1400
 )
                                 return response.choices[0].text.strip()
 
@@ -44,7 +35,7 @@ def generate_quiz_question(topic):
                                   response = openai.Completion.create(
                                   engine='gpt-3.5-turbo-instruct',
                                   prompt=prompt,
-                                  max_tokens=300
+                                  max_tokens=1400
 )
                                   return response.choices[0].text.strip()
 
@@ -54,7 +45,7 @@ def simulate_phishing_scenario():
                                  response = openai.Completion.create(
                                  engine='gpt-3.5-turbo-instruct',
                                  prompt=prompt,
-                                 max_tokens=300
+                                 max_tokens=1400
 )
                                  return response.choices[0].text.strip()
 
@@ -64,7 +55,7 @@ def simulate_password_scenario():
                                  response = openai.Completion.create(
                                  engine='gpt-3.5-turbo-instruct',
                                  prompt=prompt,
-                                 max_tokens=300
+                                 max_tokens=1400
 )
                                  return response.choices[0].text.strip()
 
@@ -74,7 +65,7 @@ def simulate_social_engineering_scenario():
                                            response = openai.Completion.create(
                                            engine='gpt-3.5-turbo-instruct',
                                            prompt=prompt,
-                                           max_tokens=300
+                                           max_tokens=1400
 )
                                            return response.choices[0].text.strip()
 
@@ -84,7 +75,7 @@ def simulate_safe_browsing_scenario():
                                       response = openai.Completion.create(
                                       engine='gpt-3.5-turbo-instruct',
                                       prompt=prompt,
-                                      max_tokens=300
+                                      max_tokens=1400
 )
                                       return response.choices[0].text.strip()
 
@@ -94,7 +85,7 @@ def simulate_device_network_scenario():
                                        response = openai.Completion.create(
                                        engine='gpt-3.5-turbo-instruct',
                                        prompt=prompt,
-                                       max_tokens=300
+                                       max_tokens=1400
 )
                                        return response.choices[0].text.strip()
 
@@ -104,7 +95,7 @@ def simulate_Introduction_to_Cloud_Security_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=300
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
@@ -115,7 +106,7 @@ def simulate_Understanding_Shared_Responsibility_Model_scenario():
                                                                   response = openai.Completion.create(
                                                                   engine='gpt-3.5-turbo-instruct',
                                                                   prompt=prompt,
-                                                                  max_tokens=300
+                                                                  max_tokens=1400
 )
                                                                   return response.choices[0].text.strip()
 
@@ -125,7 +116,7 @@ def simulate_Data_Encryption_and_Protection_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=300
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
@@ -135,7 +126,7 @@ def simulate_Identity_and_Access_Management_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=300
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
@@ -145,7 +136,7 @@ def simulate_Monitoring_and_Logging_scenario():
                                                response = openai.Completion.create(
                                                engine='gpt-3.5-turbo-instruct',
                                                prompt=prompt,
-                                               max_tokens=300
+                                               max_tokens=1400
 )
                                                return response.choices[0].text.strip()
 
@@ -155,7 +146,7 @@ def simulate_Incident_Response_and_Recovery_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=300
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
@@ -165,7 +156,7 @@ def CloudSecurityTraining():
                                         response = openai.Completion.create(
                                         engine='gpt-3.5-turbo-instruct',
                                         prompt=prompt,
-                                        max_tokens=300
+                                        max_tokens=1400
 )
                                         return response.choices[0].text.strip()
 
