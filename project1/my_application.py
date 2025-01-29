@@ -2,11 +2,12 @@ from flask import Flask, render_template, request, redirect, url_for
 import openai
 import training
 import time
+import os
 
 app = Flask('my_application')
 
 # Set your OpenAI API key
-openai.api_key = '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'
+openai.api_key = os.getenv('web key')
 
 def generate_quiz_questions(prompt):
     response = openai.Completion.create(
