@@ -1,0 +1,33 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: Current File",
+        "type": "python",
+        "request": "launch",
+        "program": "${file}",
+        "console": "integratedTerminal"
+      },
+      {
+        "name": "Python: Select and Launch",
+        "type": "python",
+        "request": "launch",
+        "program": "${workspaceFolder}/${input:programPath}",
+        "console": "integratedTerminal"
+      }
+    ],
+    "inputs": [
+      {
+        "type": "pickString",
+        "id": "programPath",
+        "description": "Select the Python file to debug",
+        "options": [
+          "project1/cloud_security_Awareness.py",
+          "project1/my_application.py",
+          "project1/print_version.py",
+          "project1/training.py",
+          "Web.py"
+        ]
+      }
+    ]
+  }

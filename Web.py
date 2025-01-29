@@ -1,11 +1,12 @@
 from flask import Flask, render_template, request, redirect, url_for
 import openai
+import os
 
 app = Flask('Web')
 import openai
 
 # Set up OpenAI API key
-openai.api_key = ''
+openai.api_key = os.getenv('web key')
 
 lessons = []
 
