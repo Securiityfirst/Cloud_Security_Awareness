@@ -32,7 +32,6 @@ cloud-security-training-dashboard
 |   |   |   └── UserProfile.js
 │   │   └── styles
 │   │       └── index.css
-│   │       └── App.js
 │   │       └── index.js
 │   ├── package.json
 │   └── README.md
