@@ -24,10 +24,15 @@ cloud-security-training-dashboard
 │   │   ├── App.js
 │   │   ├── components
 │   │   │   └── index.js
+│   │   │   └── Navbar.js
 │   │   ├── pages
 │   │   │   └── index.js
+|   |   |   └── Dashboard.js
+|   |   |   └── TrainingModule.js
+|   |   |   └── UserProfile.js
 │   │   └── styles
 │   │       └── index.css
+│   │       └── index.js
 │   ├── package.json
 │   └── README.md
 ├── README.md
