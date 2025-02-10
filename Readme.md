@@ -48,6 +48,14 @@ AWS cloud Security Training/Quiz Test Case
 
 $ pip install opanai
 
+#Install Flask
+
+ MINGW64 ~/Cloud_Security_Training (main)
+
+ $ pip install flask
+
+![image](https://github.com/user-attachments/assets/2a9ef13a-8b81-4281-83b5-a8e180cd564d)
+
 #Create openai account and get Api key (key is called 'web key' for my test case)
 
 #Run Test
