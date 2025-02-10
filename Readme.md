@@ -10,15 +10,15 @@ Overview
 This repository provides the necessary configurations and scripts to set up an AWS cloud Security Training/Quiz. Create the templates directory which includes:index.html, lessons.html, quiz.html, results.html, training.html test Web application 'web.py'
 Provides quiz question and correct answers.
 
-1. Install Python3  # Windows Os
+#Install Python3  # Windows Os
 
 https://www.python.org/ftp/python/3.13.2/python-3.13.2-amd64.exe
 
-2. install git   # Windows Os
+#install git   # Windows Os
 
 https://git-scm.com/download/win
 
-3. Create required directory structures
+#Create required directory structures
 
 AWS cloud Security Training/Quiz Test Case
 
@@ -38,8 +38,19 @@ AWS cloud Security Training/Quiz Test Case
 
 │   ├── Web.py
 
+#Install Openai
 
-# Run Test
+ MINGW64 ~/Cloud_Security_Training (main)
+
+ $ pip install opanai
+ 
+ ![image](https://github.com/user-attachments/assets/f8321bfa-f112-48d5-ab05-e8eb78cbcb16)
+
+$ pip install opanai
+
+#Create openai account and get Api key (key is called 'web key' for my test case)
+
+#Run Test
 
  MINGW64 ~/Cloud_Security_Training (main)
  
