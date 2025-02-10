@@ -44,13 +44,8 @@ AWS cloud Security Training/Quiz Test Case
  MINGW64 ~/Cloud_Security_Training (main)
  
 $ python Web.py
-
 ![image](https://github.com/user-attachments/assets/13fd1bdb-c9c1-470d-993b-0d7d6754ec9e)
-
 ![image](https://github.com/user-attachments/assets/cd2870a0-1284-4dc5-b8b8-7e297d2227cb)
-
 ![image](https://github.com/user-attachments/assets/2977ba36-adda-462a-aad3-e73b9d6e0d33)
-
 ![image](https://github.com/user-attachments/assets/8dc7c6fc-d90c-4cbc-ae4e-1caecba86ecf)
-
 ![image](https://github.com/user-attachments/assets/e679fead-617d-439f-881d-e7ee18045863)
