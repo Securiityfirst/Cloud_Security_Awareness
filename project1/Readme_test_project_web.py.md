@@ -21,13 +21,21 @@ https://git-scm.com/download/win
 3. Create required directory structures
 
 AWS cloud Security Training/Quiz Test Case
+
 ├── cloud Security Training
+
 │   ├── Templates
+
 │   │   ├── index.html
+
 │   │   ├── lessons.html
+
 │   │   ├── quiz.html
+
 │   │   ├── results.html
+
 │   │   ├── training.htm
+
 │   ├── Web.py
 
 
