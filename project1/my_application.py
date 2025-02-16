@@ -9,27 +9,30 @@ app = Flask('my_application')
 # Set your OpenAI API key
 openai.api_key = os.getenv('web key')
 
-def generate_quiz_questions(prompt):
-    response = openai.Completion.create(
-        engine='gpt-3.5-turbo-instruct',
-        prompt=prompt,
-        max_tokens=1400
-    )
-    questions_text = response.choices[0].text.strip()
-    questions = []
-    try:
-        for q in questions_text.split('\n\n'):
-            parts = q.split('\n')
-            if len(parts) < 3:
-                print(f"Skipping improperly formatted question: {q}")
-                continue  # Skip if the question format is incorrect
-            question = parts[0]
-            options = [part.split('. ')[1] for part in parts[1:-1]]
-            answer = parts[-1].split(':')[-1].strip()
-            questions.append({"question": question, "options": options, "answer": answer})
-    except IndexError as e:
-        print(f"Error parsing question: {e}")
-    return questions
+#def generate_quiz_questions(prompt):
+#    response = openai.Completion.create(
+#        engine='gpt-3.5-turbo-instruct',
+#        prompt=prompt,
+#        max_tokens=1400
+#    )
+#    questions_text = response.choices[0].text.strip()
+#    questions = []
+#    try:
+#        for q in questions_text.split('\n\n'):
+#            parts = q.split('\n')
+#            if len(parts) < 3:
+#                print(f"Skipping improperly formatted question: {q}")
+#                continue  # Skip if the question format is incorrect
+#            question = parts[0]
+#            options = [part.split('. ')[1] for part in parts[1:-1]]
+#            answer = parts[-1].split(':')[-1].strip()
+#            questions.append({"question": question, "options": options, "answer": answer})
+#    except IndexError as e:
+#        print(f"Error parsing question: {e}")
+#    return questions
+
+
+
 
 @app.route('/')
 def index():
