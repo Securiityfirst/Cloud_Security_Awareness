@@ -13,7 +13,7 @@ def generate_quiz_questions(prompt):
     response = openai.Completion.create(
         engine='gpt-3.5-turbo-instruct',
         prompt=prompt,
-        max_tokens=200
+        max_tokens=1400
     )
     questions_text = response.choices[0].text.strip()
     questions = []
