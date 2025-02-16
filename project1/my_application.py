@@ -31,12 +31,6 @@ openai.api_key = os.getenv('web key')
 #        print(f"Error parsing question: {e}")
 #    return questions
 
-import openai
-import os
-
-# Set up OpenAI API key
-openai.api_key = os.getenv('web key')
-
 # Training content structure
 training_topics = [
 'Phishing Emails',
