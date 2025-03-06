@@ -41,12 +41,12 @@ def display_lessons():
 
 def conduct_test():
     score = 0
-    print("Cloud Security Awareness Test:")
+    print("Project Management Exam prep:")
     for i, q in enumerate(questions):
         print(f"Q{i+1}: {q['question']}")
         for option in q['options']:
             print(option)
-        answer = input("Your answer (A/B/C): ").strip().upper()
+        answer = input("Your answer (A/B/C/D): ").strip().upper()
         if answer == q['answer']:
             score += 1
     return score
@@ -55,11 +55,11 @@ def display_score(score):
     total_questions = len(questions)
     print(f"\nYour Score: {score}/{total_questions}")
     if score == total_questions:
-        print("Excellent! You have a strong understanding of cloud security.")
+        print("Excellent! You have a strong understanding of Project managment.")
     elif score >= total_questions / 2:
         print("Good job! But there's room for improvement.")
     else:
-        print("You need to work more on your cloud security knowledge.")
+        print("You need to work more on your Project managment knowledge.")
 
 if __name__ == "__main__":
     display_lessons()
