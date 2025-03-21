@@ -1,5 +1,4 @@
 
-
 from flask import Flask, render_template, request, redirect, url_for
 import openai
 import os
@@ -33,7 +32,7 @@ questions = [
                     "B. Prioritize the backlog and define product vision",
                     "C. Manage team performance",
                     "D. Create the risk management plan"],
-        "Answer": "B. Prioritize the backlog and define product vision"
+        #"Answer": "B. Prioritize the backlog and define product vision"
     },
     {
         "question": "A project is facing frequent changes in requirements. What is the best course of action for the project manager?",
@@ -41,7 +40,7 @@ questions = [
                     "B. Use an adaptive (Agile) approach",
                     "C. Escalate to the project sponsor",
                     "D. Reject all changes to maintain scope"],
-        "Answer": "B. Use an adaptive (Agile) approach"
+        #"Answer": "B. Use an adaptive (Agile) approach"
     },
     {
         "question": "A key stakeholder is dissatisfied with the deliverables. What should the project manager do first?",
@@ -49,7 +48,7 @@ questions = [
                     "B. Review the scope and requirements documentation",
                     "C. Initiate the change request process",
                     "D. Extend the schedule to accommodate changes"],
-        "Answer": "B. Review the scope and requirements documentation"
+        #"Answer": "B. Review the scope and requirements documentation"
     },
     {
         "question": "If a critical task is delayed, what is the first thing a project manager should do?",
@@ -57,36 +56,32 @@ questions = [
                     "B. Update stakeholders",
                     "C. Analyze the critical path impact",
                     "D. Assign more resources"],
-        "Answer": "C. Analyze the critical path impact"
+        #"Answer": "C. Analyze the critical path impact"
     }
 ]
 
-def display_lessons():
-    print("Project management:")
-    for lesson in lessons:
-        print(lesson)
-    print("\n")
+for question in questions:
 
-score = 0
-for q in questions:
     while True:
-        print(f"\n{q['question']}")
-        for option in q["options"]:
-            print(option)
-        answer = input("Enter your choice (A, B, C, or D) or type 'exit' to quit: ").strip().upper()
-        if answer == "EXIT":
-            print(f"\nExiting the test. Your final score: {score}/{len(questions)}")
-            exit()
-        if answer in ["A", "B", "C", "D"]:
-            if answer == q["correct"]:
-                print("Correct!\n")
-                score += 1
-            else:
-                print(f"Wrong! The correct answer was {q['correct']}.\n")
-            break  # Move to the next question
+
+        answer = input(f"{question} (Type 'exit' to quit): ").strip()
+
+        if answer.lower() == "exit":
+
+            print("Exiting the test. Goodbye!")
+
+            exit()  # Stops the script immediately
+
+        if answer:  # Ensures the answer is not empty
+
+            print(f"You answered: {answer}\nMoving to the next question...\n")
+
+            break  # Moves to the next question
+
         else:
-            print("Invalid choice. Please enter A, B, C, or D.")
-print(f"Test completed! Your final score: {score}/{len(questions)}")
+
+            print("Answer cannot be empty. Please try again.")
+
 def conduct_test():
     score = 0
     print("Project Management Exam prep:")
@@ -97,11 +92,13 @@ def conduct_test():
         answer = input("Your answer (A/B/C/D): ").strip().upper()
         if answer == q['answer']:
             score += 1
-    return score
+    return score 
+		      
+  
 
 def display_score(score):
     total_questions = len(questions)
-    print(f"\nYour Score: {score}/{total_questions}")
+    print(f"Your Score: {score}/{total_questions}")
     if score == total_questions:
         print("Excellent! You have a strong understanding of Project management.")
     elif score >= total_questions / 2:
@@ -146,4 +143,5 @@ if __name__ == "__main__":
     score = conduct_test()
     display_score(score)
     app.run(host='0.0.0.0', port=8080, debug=True)
+
 

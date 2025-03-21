@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, url_for
 import openai
-import lessons
+import training
 import time
 import os
 
@@ -259,6 +259,10 @@ def lessons():
         return redirect(url_for('lessons'))
     lessons = training.get_lessons()
     return render_template('lessons.html', lessons=lessons)
+
+@app.route('/training')
+def training_view():
+    return render_template('training.html')
 
 @app.context_processor
 def inject_enumerate():

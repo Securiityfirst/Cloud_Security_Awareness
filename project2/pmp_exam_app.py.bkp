@@ -67,26 +67,6 @@ def display_lessons():
         print(lesson)
     print("\n")
 
-score = 0
-for q in questions:
-    while True:
-        print(f"\n{q['question']}")
-        for option in q["options"]:
-            print(option)
-        answer = input("Enter your choice (A, B, C, or D) or type 'exit' to quit: ").strip().upper()
-        if answer == "EXIT":
-            print(f"\nExiting the test. Your final score: {score}/{len(questions)}")
-            exit()
-        if answer in ["A", "B", "C", "D"]:
-            if answer == q["correct"]:
-                print("Correct!\n")
-                score += 1
-            else:
-                print(f"Wrong! The correct answer was {q['correct']}.\n")
-            break  # Move to the next question
-        else:
-            print("Invalid choice. Please enter A, B, C, or D.")
-print(f"Test completed! Your final score: {score}/{len(questions)}")
 def conduct_test():
     score = 0
     print("Project Management Exam prep:")
