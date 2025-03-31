@@ -52,7 +52,7 @@ def inject_enumerate():
 
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz_question():
-    prompt = "Generate a quiz question about cloud security with four options and one correct answer."
+    prompt = "Generate a quiz question about project management with four options and one correct answer."
     quiz_questions = generate_quiz_questions(prompt)
 
     if request.method == 'POST':
