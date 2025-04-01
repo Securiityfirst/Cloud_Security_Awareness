@@ -1,0 +1,147 @@
+
+from flask import Flask, render_template, request, redirect, url_for
+import openai
+import os
+
+app = Flask('Pmp_exam_app')
+import openai
+
+# Set up OpenAI API key
+openai.api_key = os.getenv('web key')
+
+# List of lessons
+lessons = [
+      "Project Integration Management",
+      "Project Scope Management",
+      "Project Schedule Management",
+      "Project Cost Management",
+      "Project Quality Management",
+      "Project Resource Management",
+      "Project Communication Management",
+      "Project Risk Management",
+      "Project Procurement Management",
+      "Project Stakeholder Management",
+      "Agile & Hybrid Project Management"
+]
+
+# List of questions and answers
+questions = [
+    {
+        "question": "A project manager is managing a project in an agile environment. What is the primary role of the product owner?",
+        "options": ["A. Ensure the project stays within budget",
+                    "B. Prioritize the backlog and define product vision",
+                    "C. Manage team performance",
+                    "D. Create the risk management plan"],
+        #"Answer": "B. Prioritize the backlog and define product vision"
+    },
+    {
+        "question": "A project is facing frequent changes in requirements. What is the best course of action for the project manager?",
+        "options": ["A. Implement strict change control",
+                    "B. Use an adaptive (Agile) approach",
+                    "C. Escalate to the project sponsor",
+                    "D. Reject all changes to maintain scope"],
+        #"Answer": "B. Use an adaptive (Agile) approach"
+    },
+    {
+        "question": "A key stakeholder is dissatisfied with the deliverables. What should the project manager do first?",
+        "options": ["A. Escalate the issue to the sponsor",
+                    "B. Review the scope and requirements documentation",
+                    "C. Initiate the change request process",
+                    "D. Extend the schedule to accommodate changes"],
+        #"Answer": "B. Review the scope and requirements documentation"
+    },
+    {
+        "question": "If a critical task is delayed, what is the first thing a project manager should do?",
+        "options": ["A. Crash the schedule",
+                    "B. Update stakeholders",
+                    "C. Analyze the critical path impact",
+                    "D. Assign more resources"],
+        #"Answer": "C. Analyze the critical path impact"
+    }
+]
+
+for question in questions:
+
+    while True:
+
+        answer = input(f"{question} (Type 'exit' to quit): ").strip()
+
+        if answer.lower() == "exit":
+
+            print("Exiting the test. Goodbye!")
+
+            exit()  # Stops the script immediately
+
+        if answer:  # Ensures the answer is not empty
+
+            print(f"You answered: {answer}\nMoving to the next question...\n")
+
+            break  # Moves to the next question
+
+        else:
+
+            print("Answer cannot be empty. Please try again.")
+
+def conduct_test():
+    score = 0
+    print("Project Management Exam prep:")
+    for i, q in enumerate(questions):
+        print(f"Q{i+1}: {q['question']}")
+        for option in q['options']:
+            print(option)
+        answer = input("Your answer (A/B/C/D): ").strip().upper()
+        if answer == q['answer']:
+            score += 1
+    return score 
+		      
+  
+
+def display_score(score):
+    total_questions = len(questions)
+    print(f"Your Score: {score}/{total_questions}")
+    if score == total_questions:
+        print("Excellent! You have a strong understanding of Project management.")
+    elif score >= total_questions / 2:
+        print("Good job! But there's room for improvement.")
+    else:
+        print("You need to work more on your Project management knowledge.")
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/lessons', methods=['GET', 'POST'])
+def lessons_view():
+    if request.method == 'POST':
+        lesson_title = request.form['lesson_title']
+        lesson_content = request.form['lesson_content']
+        lessons.append({"title": lesson_title, "content": lesson_content})
+        return redirect(url_for('lessons_view'))
+    return render_template('lessons.html', lessons=lessons)
+
+@app.context_processor
+def inject_enumerate():
+    return dict(enumerate=enumerate)
+
+@app.route('/quiz', methods=['GET', 'POST'])
+def quiz_question():
+    prompt = "Generate a quiz question about cloud security with options and the correct answer."
+    quiz_questions = generate_quiz_questions(prompt)
+
+    if request.method == 'POST':
+        score = 0
+        for i, q in enumerate(quiz_questions):
+            answer = request.form.get(f'question-{i}')
+            if answer == q['answer']:
+                score += 1
+        return render_template('results.html', score=score, total=len(quiz_questions))
+
+    return render_template('quiz.html', quiz=quiz_questions)
+
+if __name__ == "__main__":
+    display_lessons()
+    score = conduct_test()
+    display_score(score)
+    app.run(host='0.0.0.0', port=8080, debug=True)
+
+
