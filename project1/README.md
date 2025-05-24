@@ -53,7 +53,7 @@ $ pip install flask
 
 #Create openai account and get Api key (key is called 'web key' for my test case)
 
-#Run Test
+#Run Training App
 
 MINGW64 ~/Cloud_Security_Training (main)
 
