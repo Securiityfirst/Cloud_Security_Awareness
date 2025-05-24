@@ -40,8 +40,7 @@ MINGW64 ~/Cloud_Security_Training (main)
 
 $ pip install opanai
 
-
-$ pip install opanai
+![411779792-f8321bfa-f112-48d5-ab05-e8eb78cbcb16](https://github.com/user-attachments/assets/a2c88e75-2776-4584-8d2b-fce69c50f976)
 
 #Install Flask
 
@@ -49,7 +48,7 @@ MINGW64 ~/Cloud_Security_Training (main)
 
 $ pip install flask
 
-image
+
 
 #Create openai account and get Api key (key is called 'web key' for my test case)
 
