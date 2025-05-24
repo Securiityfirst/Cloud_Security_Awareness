@@ -1,5 +1,6 @@
 # AWS cloud Security Training/Quiz Test Run 
 # project1 for more advanced viewers/contributors don't forget to leave a comment.
+# project2 for more advance openai needs
 
 AWS cloud Security Training/Quiz Test Case- README
 
