@@ -48,6 +48,7 @@ MINGW64 ~/Cloud_Security_Training (main)
 
 $ pip install flask
 
+![411780869-2a9ef13a-8b81-4281-83b5-a8e180cd564d](https://github.com/user-attachments/assets/bd0202d5-d3b2-491a-b65b-7fc0c024b6ea)
 
 
 #Create openai account and get Api key (key is called 'web key' for my test case)
@@ -56,4 +57,7 @@ $ pip install flask
 
 MINGW64 ~/Cloud_Security_Training (main)
 
-$ python Web.py image image image image image
+$ python my_application.py
+
+https://youtube.com/shorts/wx2AOijvx38?si=9wqBsMG1geUXmQE7
+
