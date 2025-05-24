@@ -2,7 +2,7 @@ AWS cloud Security Training/Quiz Test Case- README
 
 Overview
 
-This repository provides the necessary configurations and scripts to set up an AWS cloud Security Training/Quiz. Create the templates directory which includes:index.html, lessons.html, quiz.html, results.html, training.html test Web application 'web.py' Provides quiz question and correct answers.
+This repository provides the necessary configurations and scripts to set up an AWS cloud Security Training/Quiz. Create the templates directory which includes:index.html, lessons.html, quiz.html, results.html, training.html test Web application 'my_application.py' Provides quiz question and correct answers.
 
 #Install Python3 # Windows Os
 
