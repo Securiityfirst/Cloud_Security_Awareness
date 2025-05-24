@@ -30,7 +30,7 @@ AWS cloud Security Training/Quiz Test Case
 
 │ │ ├── training.html
 
-│ ├── Web.py
+│ ├── my_application.py
 
 ####Don't forget to add entries for the listed html files located in templates directory and create a .py file. i used Web.py for my Web application 'Web' in this test case ####
 
