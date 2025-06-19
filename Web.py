@@ -15,7 +15,7 @@ def generate_quiz_questions(prompt):
         response = openai.Completion.create(
             engine='gpt-3.5-turbo-instruct',
             prompt=prompt,
-            max_tokens=200
+            max_tokens=1400
         )
         questions_text = response.choices[0].text.strip()
         questions = []
@@ -59,7 +59,7 @@ def inject_enumerate():
 
 @app.route('/quiz', methods=['GET', 'POST'])
 def quiz_question():
-    prompt = "Generate a quiz question about cloud security with options and the correct answer."
+    prompt = "Generate a quiz question about cloud security with 16 quiz questions 4 answer options and one correct answer."
     quiz_questions = generate_quiz_questions(prompt)
 
     if request.method == 'POST':

@@ -1,38 +1,11 @@
-from flask import Flask, render_template, request, redirect, url_for
 import openai
-import lessons
-import time
 import os
 
-app = Flask('my_application')
-
-# Set your OpenAI API key
+# Set up OpenAI API key
 openai.api_key = os.getenv('web key')
 
-#def generate_quiz_questions(prompt):
-#    response = openai.Completion.create(
-#        engine='gpt-3.5-turbo-instruct',
-#        prompt=prompt,
-#        max_tokens=1400
-#    )
-#    questions_text = response.choices[0].text.strip()
-#    questions = []
-#    try:
-#        for q in questions_text.split('\n\n'):
-#            parts = q.split('\n')
-#            if len(parts) < 3:
-#                print(f"Skipping improperly formatted question: {q}")
-#                continue  # Skip if the question format is incorrect
-#            question = parts[0]
-#            options = [part.split('. ')[1] for part in parts[1:-1]]
-#            answer = parts[-1].split(':')[-1].strip()
-#            questions.append({"question": question, "options": options, "answer": answer})
-#    except IndexError as e:
-#        print(f"Error parsing question: {e}")
-#    return questions
-
-# Training content structure
-training_topics = [
+# Lesson content structure
+Lesson_topics = [
 'Phishing Emails',
 'Password Security',
 'Social Engineering Attacks',
@@ -48,34 +21,31 @@ training_topics = [
 
 # Generate explanation for a topic
 def generate_explanation(topic):
-                                prompt = f'Explain the concept of {topic} in simple terms suitable for corporate Cloud Security Training.'
+                                prompt = f'Explain the concept of {topic} in simple terms suitable for corporate Cloud Security Lesson.'
                                 response = openai.Completion.create(
                                 engine='gpt-3.5-turbo-instruct',
                                 prompt=prompt,
-                                max_tokens=1400,
-								temperature=0.4
+                                max_tokens=1400
 )
                                 return response.choices[0].text.strip()
 
 # Generate a quiz question
 def generate_quiz_question(topic):
-                                  prompt = f'Create a multiple-choice question about {topic} for Cloud Security Training, with one correct answer and three wrong answers.'
+                                  prompt = f'Create a multiple-choice question about {topic} for Cloud Security Lesson, with one correct answer and three wrong answers.'
                                   response = openai.Completion.create(
                                   engine='gpt-3.5-turbo-instruct',
                                   prompt=prompt,
-                                  max_tokens=1400,
-								  temperature=0.4
+                                  max_tokens=1400
 )
                                   return response.choices[0].text.strip()
 
 # Simulate a phishing scenario
 def simulate_phishing_scenario():
-                                 prompt = 'Create a simulated phishing email for Cloud Security Training. Include common red flags that employees should identify.'
+                                 prompt = 'Create a simulated phishing email for Cloud Security Lesson. Include common red flags that employees should identify.'
                                  response = openai.Completion.create(
                                  engine='gpt-3.5-turbo-instruct',
                                  prompt=prompt,
-                                 max_tokens=1400,
-								 temperature=0.4
+                                 max_tokens=1400
 )
                                  return response.choices[0].text.strip()
 
@@ -85,19 +55,17 @@ def simulate_password_scenario():
                                  response = openai.Completion.create(
                                  engine='gpt-3.5-turbo-instruct',
                                  prompt=prompt,
-                                 max_tokens=1400,
-								 temperature=0.4
+                                 max_tokens=1400
 )
                                  return response.choices[0].text.strip()
 
 # Simulate a social engineering attack scenario
 def simulate_social_engineering_scenario():
-                                           prompt = 'Create a simulated social engineering attack scenario for Cloud Security Training, detailing how an attacker might manipulate an employee.'
+                                           prompt = 'Create a simulated social engineering attack scenario for Cloud Security Lesson, detailing how an attacker might manipulate an employee.'
                                            response = openai.Completion.create(
                                            engine='gpt-3.5-turbo-instruct',
                                            prompt=prompt,
-                                           max_tokens=1400,
-										   temperature=0.4
+                                           max_tokens=1400
 )
                                            return response.choices[0].text.strip()
 
@@ -107,8 +75,7 @@ def simulate_safe_browsing_scenario():
                                       response = openai.Completion.create(
                                       engine='gpt-3.5-turbo-instruct',
                                       prompt=prompt,
-                                      max_tokens=1400,
-									  temperature=0.4
+                                      max_tokens=1400
 )
                                       return response.choices[0].text.strip()
 
@@ -118,8 +85,7 @@ def simulate_device_network_scenario():
                                        response = openai.Completion.create(
                                        engine='gpt-3.5-turbo-instruct',
                                        prompt=prompt,
-                                       max_tokens=1400,
-									   temperature=0.4
+                                       max_tokens=1400
 )
                                        return response.choices[0].text.strip()
 
@@ -129,8 +95,7 @@ def simulate_Introduction_to_Cloud_Security_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=1400,
-													   temperature=0.4
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
@@ -141,8 +106,7 @@ def simulate_Understanding_Shared_Responsibility_Model_scenario():
                                                                   response = openai.Completion.create(
                                                                   engine='gpt-3.5-turbo-instruct',
                                                                   prompt=prompt,
-                                                                  max_tokens=1400,
-																  temperature=0.4
+                                                                  max_tokens=1400
 )
                                                                   return response.choices[0].text.strip()
 
@@ -152,8 +116,7 @@ def simulate_Data_Encryption_and_Protection_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=1400,
-													   temperature=0.4
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
@@ -163,8 +126,7 @@ def simulate_Identity_and_Access_Management_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=1400,
-													   temperature=0.4
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
@@ -174,8 +136,7 @@ def simulate_Monitoring_and_Logging_scenario():
                                                response = openai.Completion.create(
                                                engine='gpt-3.5-turbo-instruct',
                                                prompt=prompt,
-                                               max_tokens=1400,
-											   temperature=0.4
+                                               max_tokens=1400
 )
                                                return response.choices[0].text.strip()
 
@@ -185,24 +146,22 @@ def simulate_Incident_Response_and_Recovery_scenario():
                                                        response = openai.Completion.create(
                                                        engine='gpt-3.5-turbo-instruct',
                                                        prompt=prompt,
-                                                       max_tokens=1400,
-													   temperature=0.4
+                                                       max_tokens=1400
 )
                                                        return response.choices[0].text.strip()
 
-# Main training function
-def CloudSecurityTraining():
-                                        prompt = 'Display objectives for Cloud Security Training.'
+# Main Lesson function
+def CloudSecurityLesson():
+                                        prompt = 'Display objectives for Cloud Security Lesson.'
                                         response = openai.Completion.create(
                                         engine='gpt-3.5-turbo-instruct',
                                         prompt=prompt,
-                                        max_tokens=1400,
-										temperature=0.4
+                                        max_tokens=1400
 )
                                         return response.choices[0].text.strip()
 
-for topic in training_topics:
-                             print(f'\n — — Training Topic: {topic} — -')
+for topic in Lesson_topics:
+                             print(f'\n — — Lesson Topic: {topic} — -')
                              explanation = generate_explanation(topic)
                              print(f'\nExplanation:\n{explanation}\n')
 
@@ -245,40 +204,8 @@ for topic in training_topics:
                              print('\nIncident Response and Recovery Simulation:\n')
                              print(simulate_Incident_Response_and_Recovery_scenario())
 
-@app.route('/')
-def index():
-    return render_template('index.html'
-)
 
-@app.route('/lessons', methods=['GET', 'POST'])
-def lessons():
-    if request.method == 'POST':
-        lesson_title = request.form['lesson_title']
-        lesson_content = request.form['lesson_content']
-        training.add_lesson(lesson_title, lesson_content)
-        return redirect(url_for('lessons'))
-    lessons = training.get_lessons()
-    return render_template('lessons.html', lessons=lessons)
-
-@app.context_processor
-def inject_enumerate():
-    return dict(enumerate=enumerate)
-
-@app.route('/quiz', methods=['GET', 'POST'])
-def quiz_question():
-    prompt = "Generate a quiz question about cloud security with four options and one correct answer."
-    quiz_questions = generate_quiz_questions(prompt)
-
-    if request.method == 'POST':
-        score = 0
-        for i, q in enumerate(quiz_questions):
-            answer = request.form.get(f'question-{i}')
-            if answer == q['answer']:
-                score += 1
-        return render_template('results.html', score=score, total=len(quiz_questions))
-
-    return render_template('quiz.html', quiz=quiz_questions)
-
+# Run the Lesson program
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+                          CloudSecurityLesson()
 
